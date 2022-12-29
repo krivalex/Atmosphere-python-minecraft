@@ -1,7 +1,7 @@
+import time
+from playsound import playsound
 from mcpi.minecraft import Minecraft
 mc = Minecraft.create()
-from playsound import playsound
-import time
 
 pos = mc.player.getTilePos()
 floorX = pos.x - 2
@@ -14,10 +14,11 @@ block = 41
 
 play = True
 
-mc.setBlocks(floorX, floorY, floorZ, floorX + width, floorY, floorZ + length, block)
+mc.setBlocks(floorX, floorY, floorZ, floorX +
+             width, floorY, floorZ + length, block)
 while floorX <= pos.x <= floorX + width and floorZ <= pos.z <= floorZ + length:
     if play:
-        playsound('files/Song.mp3', False)
+        # playsound('files/Song.mp3', False)
         play = False
     if block == 41:
         block = 57
@@ -29,6 +30,7 @@ while floorX <= pos.x <= floorX + width and floorZ <= pos.z <= floorZ + length:
         block = 169
     else:
         block = 41
-    mc.setBlocks(floorX, floorY, floorZ, floorX + width, floorY, floorZ + length, block)
+    mc.setBlocks(floorX, floorY, floorZ, floorX +
+                 width, floorY, floorZ + length, block)
     pos = mc.player.getTilePos()
     time.sleep(0.5)
